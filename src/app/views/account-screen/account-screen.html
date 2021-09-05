@@ -1,0 +1,109 @@
+<div
+	class="card-body"
+	style="
+		background-color: white;
+		height: 450px;
+		width: 600px;
+		border-radius: 4px;
+	"
+>
+	<div class="row">
+		<button
+			class="btn btn-lg btn-danger text-white ml-auto"
+			style="width: 60px; font-weight: bold"
+            (click)="goToLoginPage()"
+		>
+			<i class="fas fa-power-off"></i>
+		</button>
+	</div>
+	<div class="row">
+		<h2 class="mr-auto ml-auto">BugBank</h2>
+	</div>
+
+	<div class="row mt-4">
+		<h3 class="mr-auto ml-auto">Guilherme Rodrigues de Melo</h3>
+	</div>
+
+	<div class="row mt-4">
+		<h3 class="mr-auto ml-auto">Saldo</h3>
+	</div>
+
+	<div class="row mt-1">
+		<h2 class="mr-auto ml-auto">R$ 8000,00</h2>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6 text-right">
+			<button
+				class="btn btn-lg btn-warning text-white"
+				style="width: 150px; font-weight: bold"
+                (click)="openModal(AccountMovements)"
+			>
+				<i class="fas fa-minus"></i>
+				Saques
+			</button>
+		</div>
+		<div class="col-md-6 text-left">
+			<button
+				class="btn btn-lg btn-success text-white"
+				style="width: 150px; font-weight: bold"
+                (click)="openModal(AccountMovements)"
+			>
+				<i class="fas fa-plus"></i>
+				Depositar
+			</button>
+		</div>
+	</div>
+
+	<div class="row mt-5">
+		<img
+			class="mr-auto ml-auto"
+			src="../../../assets/images/logo-bug.png"
+			alt=""
+			height="40px"
+			width="auto"
+		/>
+	</div>
+</div>
+
+<ng-template #AccountMovements let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="deleteAlert">Movimentação Bancária</h5>
+  
+      <button
+        type="button"
+        class="close"
+        (click)="closeBtnClick()"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  
+    <div class="modal-body">
+        <div style="text-align: center;">
+            <h3>Tipo Movimentação: Saque</h3>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4" style="margin-left: auto; margin-right: auto">
+            <label>Valor</label>
+            <input type="text" class="form-control"/>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <button
+            type="button"
+            class="btn btn-secondary mr-2"
+            (click)="closeBtnClick()"
+            style="margin-left: auto"
+          >
+            Cancelar
+          </button>
+  
+          <button type="button" class="btn btn-info" style="margin-right: auto">
+            Confirmar
+          </button>
+        </div>
+    </div>
+  </ng-template>
