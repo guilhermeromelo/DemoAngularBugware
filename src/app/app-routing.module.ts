@@ -6,26 +6,27 @@ import { LoginComponent } from './views/authentication/login/login.component';
 import { BackgroundComponent } from './views/background/blank.component';
 
 export const Approutes: Routes = [
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     {
         path: '',
         component: BackgroundComponent,
         children: [
             {
-                path: '404',
-                component: NotfoundComponent
-            },
-            {
                 path: 'login',
                 component: LoginComponent
             },
             {
-                path: 'account',
+                path: 'account/:id',
                 component: AccountComponent
             }
         ]
     },
     {
+        path: '404',
+        component: NotfoundComponent
+    },
+    {
         path: '**',
         redirectTo: '/404'
-    }
+    },
 ];

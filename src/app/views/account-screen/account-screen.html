@@ -21,7 +21,7 @@
 	</div>
 
 	<div class="row mt-4">
-		<h3 class="mr-auto ml-auto">Guilherme Rodrigues de Melo</h3>
+		<h3 class="mr-auto ml-auto">{{clientName}}</h3>
 	</div>
 
 	<div class="row mt-4">
@@ -29,7 +29,7 @@
 	</div>
 
 	<div class="row mt-1">
-		<h2 class="mr-auto ml-auto">R$ 8000,00</h2>
+		<h2 class="mr-auto ml-auto">R$ {{saldo.toFixed(2)}}</h2>
 	</div>
 
 	<div class="row mt-3">
@@ -37,7 +37,7 @@
 			<button
 				class="btn btn-lg btn-warning text-white"
 				style="width: 150px; font-weight: bold"
-                (click)="openModal(AccountMovements)"
+                (click)="openModal(AccountMovements, false)"
 			>
 				<i class="fas fa-minus"></i>
 				Saques
@@ -47,7 +47,7 @@
 			<button
 				class="btn btn-lg btn-success text-white"
 				style="width: 150px; font-weight: bold"
-                (click)="openModal(AccountMovements)"
+                (click)="openModal(AccountMovements, true)"
 			>
 				<i class="fas fa-plus"></i>
 				Depositar
@@ -87,7 +87,7 @@
         <div class="row mt-4">
           <div class="col-md-4" style="margin-left: auto; margin-right: auto">
             <label>Valor</label>
-            <input type="text" class="form-control"/>
+            <input type="text" class="form-control" [(ngModel)]="operationValue"/>
           </div>
         </div>
 
@@ -101,7 +101,7 @@
             Cancelar
           </button>
   
-          <button type="button" class="btn btn-info" style="margin-right: auto">
+          <button type="button" class="btn btn-info" style="margin-right: auto" (click) = submitOperation()>
             Confirmar
           </button>
         </div>

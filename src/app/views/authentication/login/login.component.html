@@ -28,10 +28,8 @@
 				<div class="col-12">
 					<form
 					class="form-horizontal m-t-20"
-					id="loginform"
-					*ngIf="loginForm"
 					(ngSubmit)="login()"
-					[formGroup]="loginForm"
+					id="loginform"
 				  >
 					<div class="input-group mb-3">
 					  <div class="input-group-prepend">
@@ -42,10 +40,8 @@
 					  <input
 						type="text"
 						class="form-control"
-						placeholder="Login"
-						aria-label="Username"
-						aria-describedby="basic-addon1"
-						formControlName="login"
+						placeholder="CPF"
+						[(ngModel)]="cpf"
 					  />
 					</div>
 					<div class="input-group mb-3">
@@ -58,16 +54,16 @@
 						type="password"
 						class="form-control"
 						placeholder="Senha"
-						aria-label="Password"
-						aria-describedby="basic-addon1"
-						formControlName="password"
+						[(ngModel)]="password"
 					  />
 					</div>
-		
+					<h4 *ngIf="errorMessage != ''" class="text-center text-danger">{{errorMessage}}</h4>
+
 					<div class="form-group text-center" style="padding-top: 20px">
 					  <div class="col-xs-12 p-b-20">
 						<button
 						  type="submit"
+						  [disabled]='loading == true'
 						  class="btn btn-block btn-lg"
 						  style="
 							background-color: #5b0768;
